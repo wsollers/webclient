@@ -12,6 +12,10 @@ class Connection {
   
 public:
   Connection(const std::string &serverName, int port);
+
+  void Connection::sendRequest();
+  std::string readResponse ();
+
   ~Connection();
 
 private:

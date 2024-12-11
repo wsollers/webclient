@@ -62,6 +62,22 @@ Connection::Connection (const std::string &serverName, int port) {
   }
 }
 
+void Connection::sendRequest(HttpRequest httpRequest) {
+
+  SSL_Write(ssl, request);
+
+
+}
+
+std::string Connection::readResponse() {
+  char buffer[4096];
+  int bytes;
+  while ((bytes = SSL_read(ssl, buffer, sizeof(buffer))) > 0) {
+    std::cout.write(buffer, bytes);
+  }
+  return std::string(buffer);
+}
+
 Connection::~Connection() {
   // Clean up
   SSL_CTX_free(ctx);

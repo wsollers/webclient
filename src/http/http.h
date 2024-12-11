@@ -33,7 +33,7 @@ struct HttpRequest {
   std::string headers;
   std::string body;
 
-  std::vector<std::string> headers_list;
+  std::vector<HttpHeader> headers;
 };
 
 
